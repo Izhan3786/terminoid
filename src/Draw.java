@@ -1,27 +1,25 @@
 package src;
 import javax.swing.*;
 
+import core.Array;
 import core.Sprite;
 
 import java.awt.*;
 
 class Draw extends JPanel {
 
-    Sprite ship;
+    Array<Sprite> sprites;
+    
 
-    Draw() {
+    Draw(Array<Sprite> sprites) {
         setBackground(Color.BLACK);
-
-        try {
-            ship = new Sprite("sprite/ship.png");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        this.sprites = sprites;
     }
 
     void render(Graphics2D g) {
-        ship.draw(g);
+        for(Sprite sprite : sprites) {
+            sprite.draw(g);
+        }
     }
     
 
@@ -29,5 +27,8 @@ class Draw extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         render((Graphics2D) g);
+        for(Sprite sprite : sprites) {
+            sprite.draw((Graphics2D) g);
+        }
     }
 }

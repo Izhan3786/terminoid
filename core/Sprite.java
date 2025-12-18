@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.awt.*;
 import javax.imageio.ImageIO;
+import static core.Say.say;
 
 public class Sprite {
 
@@ -18,7 +19,13 @@ public class Sprite {
         }
     }
 
+    public void translate(Vector2 amount) {
+        this.position.x += amount.x;
+        this.position.y += amount.y;
+    }
+
     public void draw(Graphics2D g) {
+        say("draw");
         g.drawImage(image, (int) position.x, (int) position.y, null);
     }
 
