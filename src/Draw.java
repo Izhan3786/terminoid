@@ -13,7 +13,7 @@ class Draw extends JPanel {
         setBackground(Color.BLACK);
 
         try {
-            ship = new Sprite("assets/ship.png");
+            ship = new Sprite("sprite/ship.png");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -12,7 +12,7 @@ public class Sprite {
     public Sprite(String src) {
         this.position = new Vector2(200,200);
         try {
-            this.image = ImageIO.read(new File("assets/ship.png"));
+            this.image = ImageIO.read(new File("assets/" + src));
         } catch (Exception e) {
             e.printStackTrace();
         }
