@@ -1,21 +1,5 @@
 # 🚀 ASTEROID BLASTER
 
-```
-      *     .       ☄️        .        *
-          .        _________
-    ☄️        ___/_____\___        *
-          .   |  _   _  |   .
-      *        | | | | | |        ☄️
-               | |_| |_| |   🚀
-               |_________|  /|\
-                    |        |
-                   / \      / \
-
-        Defend space. Destroy asteroids. Survive.
-```
-
----
-
 ## 🌌 About the Game
 
 **Asteroid Blaster** is a fast-paced **arcade space shooter** where asteroids rain down from the depths of space and **your mission is simple**:
