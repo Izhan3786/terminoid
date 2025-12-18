@@ -81,7 +81,7 @@ Simple mechanics. Endless challenge.
 
 ```bash
 # clone the repository
-git clone https://github.com/your-username/asteroid-blaster.git
+git clone https://github.com/ptsdpatient/terminoid.git
 
 # navigate to project folder
 cd asteroid-blaster
@@ -97,8 +97,6 @@ java Main
 ## 🛠️ Built With
 
 * Java
-* LibGDX / Custom Engine *(update as needed)*
-
 ---
 
 ## 🚧 Roadmap
