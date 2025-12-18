@@ -10,7 +10,6 @@ import java.awt.event.*;
 
 public class Main extends JFrame implements KeyListener {
 
-    private boolean[] keys = new boolean[256];
     private Draw renderer;
 
     Array<Sprite> sprites = new Array<>();
@@ -19,9 +18,25 @@ public class Main extends JFrame implements KeyListener {
 
     Input input = new Input();
 
-    public void initialize() {
-        sprites.add(this.ship);
+    
+    /* Core logic here! */
+
+    private void update() {
+        if(input.isKeyDown('a')) {
+            ship.translate(new Vector2(-1,0));
+            ship.rotate(0.03f);
+        }
+
+        if(input.isKeyDown('d')) {
+            ship.translate(new Vector2(1,0));
+            ship.rotate(0.03f);
+        }
     }
+
+
+    /* ye neche wale methods filler methods hai ignore them, but do not remove */
+
+    
 
     public Main() {
         setTitle("Terminoid");
@@ -45,22 +60,12 @@ public class Main extends JFrame implements KeyListener {
         setVisible(true);
         startGameLoop();
     }
-
+public void initialize() {
+        sprites.add(this.ship);
+    }
       private void startGameLoop() {
         new Thread(() -> {
             while (true) {
-                if(input.isKeyDown('a')) {
-                    say("a pressed");
-                    ship.translate(new Vector2(-1,0));
-                    renderer.repaint();
-                }
-
-                if(input.isKeyDown('d')) {
-                    say("d pressed");
-                    ship.translate(new Vector2(1,0));
-                    renderer.repaint();
-                }
-                
                 update();
                 render();
                 sleep(16); 
@@ -68,34 +73,25 @@ public class Main extends JFrame implements KeyListener {
         }).start();
     }
 
-    private void update() {
-        if (keys[KeyEvent.VK_A]) {
-            say("A is held");
-        }
-    }
-
     private void render() {
-        
+        renderer.repaint();
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        // keys[e.getKeyCode()] = true;
+    public static void main(String[] args) {
+        say("[*] Game Started!");
+        new Main();
     }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        // keys[e.getKeyCode()] = false;
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {}
 
     private void sleep(long ms) {
         try { Thread.sleep(ms); } catch (Exception ignored) {}
     }
+    
+    @Override
+    public void keyPressed(KeyEvent e) {}
 
-    public static void main(String[] args) {
-        new Main();
-    }
+    @Override
+    public void keyReleased(KeyEvent e) {}
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
 }
