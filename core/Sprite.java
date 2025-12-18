@@ -8,12 +8,24 @@ import java.awt.geom.AffineTransform;
 public class Sprite {
 
     private BufferedImage image;
-    Vector2 position;
+    Vector2 position, size;
     public float rotation;
 
 
     public Sprite(String src) {
         this.position = new Vector2(200,200);
+        this.size = new Vector2(32,32);
+        this.rotation = 0f;
+        try {
+            this.image = ImageIO.read(new File("assets/" + src));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+     public Sprite(String src, Vector2 position) {
+        this.position = position;
+        this.size = new Vector2(32,32);
         this.rotation = 0f;
         try {
             this.image = ImageIO.read(new File("assets/" + src));
@@ -25,6 +37,10 @@ public class Sprite {
     public void translate(Vector2 amount) {
         this.position.x += amount.x;
         this.position.y += amount.y;
+    }
+    public void setPosition(Vector2 position){
+        this.position = position;
+
     }
 
     public void rotate(float radians) {
