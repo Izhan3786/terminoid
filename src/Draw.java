@@ -1,17 +1,15 @@
+package src;
 import javax.swing.*;
 
 import core.Sprite;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-import java.io.File;
 
-class Renderer extends JPanel {
+class Draw extends JPanel {
 
     Sprite ship;
 
-    Renderer() {
+    Draw() {
         setBackground(Color.BLACK);
 
         try {

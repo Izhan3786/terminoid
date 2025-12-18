@@ -1,13 +1,12 @@
+package src;
 import javax.swing.*;
-
-import static debug.Debug.yap;
-
+import static core.Say.say;
 import java.awt.event.*;
 
 public class Main extends JFrame implements KeyListener {
 
     private boolean[] keys = new boolean[256];
-    private Renderer renderer;
+    private Draw renderer;
 
     public Main() {
         setTitle("Terminoid");
@@ -15,7 +14,7 @@ public class Main extends JFrame implements KeyListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
-        renderer = new Renderer();
+        renderer = new Draw();
         add(renderer);
 
         addKeyListener(this);
@@ -38,7 +37,7 @@ public class Main extends JFrame implements KeyListener {
 
     private void update() {
         if (keys[KeyEvent.VK_A]) {
-            yap("A is held");
+            say("A is held");
         }
     }
 
