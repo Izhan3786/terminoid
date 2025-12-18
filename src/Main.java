@@ -14,22 +14,26 @@ public class Main extends JFrame implements KeyListener {
 
     Array<Sprite> sprites = new Array<>();
 
-    Sprite ship = new Sprite("sprite/ship.png");
+    Sprite ship = new Sprite("sprite/ship.png", new Vector2(100, 100));
+    Sprite asteroid = new Sprite("sprite/asteroid.png", new Vector2(100, 100));
 
     Input input = new Input();
 
     
     /* Core logic here! */
-
+    public void initialize() {
+        sprites.add(this.ship);
+        sprites.add(this.asteroid);
+    }
     private void update() {
         if(input.isKeyDown('a')) {
             ship.translate(new Vector2(-1,0));
-            ship.rotate(0.03f);
+            // ship.rotate(0.03f);
         }
 
         if(input.isKeyDown('d')) {
             ship.translate(new Vector2(1,0));
-            ship.rotate(0.03f);
+            // ship.rotate(0.03f);
         }
     }
 
@@ -59,9 +63,6 @@ public class Main extends JFrame implements KeyListener {
 
         setVisible(true);
         startGameLoop();
-    }
-public void initialize() {
-        sprites.add(this.ship);
     }
       private void startGameLoop() {
         new Thread(() -> {
